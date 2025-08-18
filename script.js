@@ -22,6 +22,17 @@ function dslCalculate() {
     document.getElementById("dsl.result").innerHTML = result + " meters.";
 }
 
+function sblCalculate() {
+    let result = 0;
+    // Zoom does not matter for speed by lnegth
+    let length = getFloat("sbl.length");
+    let seconds = getInt("sbl.seconds");
+
+    result = (length * 1.94 / seconds);
+    result = Math.round( ( result + Number.EPSILON) * 100 / 100);
+    document.getElementById("sbl.result").innerHTML = result + " knots.";
+}
+
 function getFloat(id) {
     return parseFloat(document.getElementById(id).value);
 }

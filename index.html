@@ -14,7 +14,7 @@
     </div>
   </body>
 
-  <div id="grid" class="doubleGrid">
+  <div id="grid" class="tripleGrid">
     <div id="dmh">
       <h2>Distance by mast height</h2>
       <form id="dmh.form" oninput="dmhCalculate()">
@@ -43,8 +43,8 @@
       <h2>Distance by ship length</h2>
       <form id="dsl.form" oninput="dslCalculate()">
         <p>
-          <label for="dsh.zoom">Zoom:</label>
-          <select id="dsh.zoom">
+          <label for="dsl.zoom">Zoom:</label>
+          <select id="dsl.zoom">
             <!--We use zoom factor 1 for 1.5x zoom and 4 for 6x zoom. This simplifies the calculation.-->
             <option value=1>1.5x</option>
             <option value=4>6x</option>
@@ -59,8 +59,23 @@
           <input type="number" id="dsl.degrees">
         </p>
       </form>
-
       <p id="dsl.result">Please enter some values.</p>
+    </div>
+
+      <div id="sbl">
+        <h2>Speed by Length</h2>
+        <form id="sbl.form" oninput="sblCalculate()">
+          <p>
+            <label for="sbl.length">Ship length:</label>
+            <input type="number" id="sbl.length">
+          </p>
+          <p>
+            <label for="sbl.seconds">Seconds:</label>
+            <input type="number" id="sbl.seconds">
+          </p>
+        </form>
+
+      <p id="sbl.result">Please enter some values.</p>
     </div>
   </div>
 
