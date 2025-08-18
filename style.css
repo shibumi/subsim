@@ -1,0 +1,48 @@
+body {
+    font-family: monospace;
+    min-width: 1200px;
+    color: white;
+    background-color: black;
+    padding: 0;
+}
+
+h1 {
+    padding-inline-end: 20px;
+ }
+
+p {
+    font-size: 10pt;
+}
+
+form {
+    display:table;
+}
+
+form p {
+    display: table-row;
+}
+
+form label {
+    display: table-cell;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+input {
+    display: table-cell;
+    text-align: right;
+    font-family: monospace;
+}
+
+select {
+    text-align: right;
+    font-family: monospace;
+}
+
+.doubleGrid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-inline: 0px 15px;
+  }

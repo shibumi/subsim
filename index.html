@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FRANZ</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>FRANZ (Firing Resolution And Navigation Zeroing)</h1>
+      <p>Servus, I am FRANZ your bavarian first officer. I am here to help you with target resolutions and firing data calculations.</p>
+    </div>
+  </body>
+
+  <div id="grid" class="doubleGrid">
+    <div id="dmh">
+      <h2>Distance by mast height</h2>
+      <form id="dmh.form" oninput="dmhCalculate()">
+        <p>
+          <label for="dmh.zoom">Zoom:</label>
+          <select id="dmh.zoom">
+            <!--We use zoom factor 1 for 1.5x zoom and 4 for 6x zoom. This simplifies the calculation.-->
+            <option value=1>1.5x</option>
+            <option value=4>6x</option>
+          </select>
+        </p>
+        <p>
+          <label for="dmh.height">Mast height:</label>
+          <input type="number" id="dmh.height">
+        </p>
+        <p>
+          <label for="dmh.milliradians">Milliradians:</label>
+          <input type="number" id="dmh.milliradians">
+        </p>
+      </form>
+
+      <p id="dmh.result">Please enter some values.</p>
+    </div>
+
+    <div id="dsl">
+      <h2>Distance by ship length</h2>
+      <form id="dsl.form" oninput="dslCalculate()">
+        <p>
+          <label for="dsh.zoom">Zoom:</label>
+          <select id="dsh.zoom">
+            <!--We use zoom factor 1 for 1.5x zoom and 4 for 6x zoom. This simplifies the calculation.-->
+            <option value=1>1.5x</option>
+            <option value=4>6x</option>
+          </select>
+        </p>
+        <p>
+          <label for="dsl.length">Ship length:</label>
+          <input type="number" id="dsl.length">
+        </p>
+        <p>
+          <label for="dsl.degrees">Degrees:</label>
+          <input type="number" id="dsl.degrees">
+        </p>
+      </form>
+
+      <p id="dsl.result">Please enter some values.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</html>
