@@ -17,7 +17,7 @@ function dslCalculate() {
     let length = getFloat("dsl.length");
     let degrees = getFloat("dsl.degrees");
 
-    result = (length * 916.73 / degrees) * zoom;
+    result = (length * 57.30 / degrees) * zoom;
     result = Math.round((result + Number.EPSILON) * 100 / 100);
     document.getElementById("dsl.result").innerHTML = result + " meters.";
 }
