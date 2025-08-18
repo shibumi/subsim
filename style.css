@@ -54,3 +54,11 @@ select {
       padding-bottom: 5px;
       padding-inline: 0px 15px;
 }
+
+.quadGrid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-inline: 0px 15px;
+}
