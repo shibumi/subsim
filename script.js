@@ -67,6 +67,25 @@ function sleCalculate() {
     document.getElementById("sle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
 }
 
+function dleCalculate() {
+    let result = 0;
+    let brg1 = getInt("dle.brg1");
+    let brg2 = getInt("dle.brg2");
+    let crso1 = getInt("dle.crso1");
+    let crso2 = getInt("dle.crso2");
+    let brgrt1 = getInt("dle.brgrt1")
+    let brgrt2 = getInt("dle.brgrt2")
+    let lla1 = diffAngle(brg1, crso1);
+    let lla2 = diffAngle(brg2, crso2);
+    let spdoa1 = Math.abs(Math.sin(degToRad(lla1)) * spdo);
+    let spdoa2 = Math.abs(Math.sin(degToRad(lla2)) * spdo);
+    result = (spdoa2 - spdoa1) / (brgrt1 - brgrt2);
+    document.getElementById("dle.spdoa1").innerHTML = "SPDOA 1: " + round(spdoa) + " knots.";
+    document.getElementById("dle.spdoa2").innerHTML = "SPDOA 2: " + round(spdoa) + " knots.";
+    document.getElementById("dle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
+
+}
+
 function getFloat(id) {
     return parseFloat(document.getElementById(id).value);
 }
