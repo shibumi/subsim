@@ -43,8 +43,8 @@ function sleCalculate() {
     let brgrt = getFloat("sle.brgrt");
     let lag = document.getElementById("sle.lag").checked
 
-    let aob = reciprocal(brg) - crst;
-    let lla = brg - crso;
+    let aob = diffAngle(reciprocal(brg), crst);
+    let lla = diffAngle(brg, crso);
     let spdoa = Math.abs(Math.sin(degToRad(lla)) * spdo);
     let spdta = Math.abs(Math.sin(degToRad(aob)) * spdt);
     let spdoi = Math.abs(Math.cos(degToRad(lla)) * spdo);
@@ -90,6 +90,18 @@ function reciprocal(bearing) {
     } else {
       return bearing - 180;
     }
+}
+
+// diffAngle calculates the difference between two angles.
+// For example x = 50, y = 60. The result is 350 and not -10.
+function diffAngle(x, y) {
+    let d = x - y;
+    if (d > 180) {
+        d  = d - 360;
+    } else if (d < -180) {
+        d = d +  360;
+    }
+    return d;
 }
 
 function degToRad(degrees) {
