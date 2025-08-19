@@ -96,12 +96,7 @@ function reciprocal(bearing) {
 // For example x = 50, y = 60. The result is 350 and not -10.
 function diffAngle(x, y) {
     let d = x - y;
-    if (d > 180) {
-        d  = d - 360;
-    } else if (d < -180) {
-        d = d +  360;
-    }
-    return d;
+    return (d % 360 + 360) % 360;
 }
 
 function degToRad(degrees) {
