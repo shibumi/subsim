@@ -6,7 +6,7 @@ function dmhCalculate() {
     let milliradians = getFloat("dmh.milliradians");
 
     result = (height * 916.73 / milliradians) * zoom;
-    result = Math.round((result + Number.EPSILON) * 100 / 100);
+    result = round(result);
     document.getElementById("dmh.result").innerHTML = result + " meters.";
 }
 
@@ -18,7 +18,7 @@ function dslCalculate() {
     let degrees = getFloat("dsl.degrees");
 
     result = (length * 57.30 / degrees) * zoom;
-    result = Math.round((result + Number.EPSILON) * 100 / 100);
+    result = round(result);
     document.getElementById("dsl.result").innerHTML = result + " meters.";
 }
 
@@ -29,7 +29,7 @@ function sblCalculate() {
     let seconds = getInt("sbl.seconds");
 
     result = (length * 1.94 / seconds);
-    result = Math.round( ( result + Number.EPSILON) * 100 / 100);
+    result = round(result);
     document.getElementById("sbl.result").innerHTML = result + " knots.";
 }
 
@@ -59,12 +59,12 @@ function sleCalculate() {
     result = Math.abs(spdra / brgrt);
     document.getElementById("aob.result").innerHTML = "AOB: " + aob;
     document.getElementById("lla.result").innerHTML = "LLA: " + lla;
-    document.getElementById("spdoa.result").innerHTML = "SPDOA: " + spdoa + " knots.";
-    document.getElementById("spdta.result").innerHTML = "SPDTA: " + spdta + " knots.";
-    document.getElementById("spdoi.result").innerHTML = "SPDOI: " + spdoi + " knots.";
-    document.getElementById("spdti.result").innerHTML = "SPDTI: " + spdti + " knots.";
-    document.getElementById("spdra.result").innerHTML = "SPDRA: " + Math.abs(spdra) + " knots.";
-    document.getElementById("sle.result").innerHTML = "Ekelund Range: " + result + " nm.";
+    document.getElementById("spdoa.result").innerHTML = "SPDOA: " + round(spdoa) + " knots.";
+    document.getElementById("spdta.result").innerHTML = "SPDTA: " + round(spdta) + " knots.";
+    document.getElementById("spdoi.result").innerHTML = "SPDOI: " + round(spdoi) + " knots.";
+    document.getElementById("spdti.result").innerHTML = "SPDTI: " + round(spdti) + " knots.";
+    document.getElementById("spdra.result").innerHTML = "SPDRA: " + round(Math.abs(spdra)) + " knots.";
+    document.getElementById("sle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
 }
 
 function getFloat(id) {
@@ -105,4 +105,10 @@ function degToRad(degrees) {
 
 function radToDeg(rad) {
     return rad / (Math.PI / 180);
+}
+
+function round(x) {
+    return x.toFixed(2);
+    // Alternative version with corrected float:
+    // return Math.round( ( x + Number.EPSILON) * 100 / 100);
 }
