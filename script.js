@@ -7,7 +7,7 @@ function dmhCalculate() {
 
     result = (height * 916.73 / markings) * zoom;
     result = round(result);
-    document.getElementById("dmh.result").innerHTML = result + " meters.";
+    document.getElementById("dmh.result").innerHTML = "Range: " + result + " meters.";
 }
 
 // Calculator for distance by ship length
@@ -19,7 +19,7 @@ function dslCalculate() {
 
     result = (length * 57.30 / degrees) * zoom;
     result = round(result);
-    document.getElementById("dsl.result").innerHTML = result + " meters.";
+    document.getElementById("dsl.result").innerHTML = "Range: " + result + " meters.";
 }
 
 function sblCalculate() {
@@ -30,7 +30,7 @@ function sblCalculate() {
 
     result = (length * 1.94 / seconds);
     result = round(result);
-    document.getElementById("sbl.result").innerHTML = result + " knots.";
+    document.getElementById("sbl.result").innerHTML = "Speed: " + result + " knots.";
 }
 
 function sleCalculate() {
