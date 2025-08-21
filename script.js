@@ -3,9 +3,9 @@ function dmhCalculate() {
     let result = 0;
     let zoom = getInt("dmh.zoom");
     let height = getFloat("dmh.height");
-    let milliradians = getFloat("dmh.milliradians");
+    let markings = getFloat("dmh.markings");
 
-    result = (height * 916.73 / milliradians) * zoom;
+    result = (height * 916.73 / markings) * zoom;
     result = round(result);
     document.getElementById("dmh.result").innerHTML = result + " meters.";
 }
