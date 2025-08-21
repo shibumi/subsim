@@ -16,8 +16,9 @@ function dslCalculate() {
     let zoom = getInt("dsl.zoom");
     let length = getFloat("dsl.length");
     let degrees = getFloat("dsl.degrees");
+    let  aob = getFloat("dsl.aob");
 
-    result = (length * 57.30 / degrees) * zoom;
+    result = ((length * 57.30 / degrees) * zoom) / aob;
     result = round(result);
     document.getElementById("dsl.result").innerHTML = "Range: " + result + " meters.";
 }
@@ -128,6 +129,4 @@ function radToDeg(rad) {
 
 function round(x) {
     return x.toFixed(2);
-    // Alternative version with corrected float:
-    // return Math.round( ( x + Number.EPSILON) * 100 / 100);
 }
