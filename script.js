@@ -94,8 +94,19 @@ function nmCalculate() {
     let result = 0;
     let nm = getFloat("nm.nm");
     result = nm * 1852;
-    document.getElementById("nm.result").innerHTML = "Meters: " + result + " m."
-    document.getElementById("nm.hectom").innerHTML = "Hectometers: " + (result / 100) + "hm."
+    document.getElementById("nm.result").innerHTML = "Meters: " + result + " m.";
+    document.getElementById("nm.hectom").innerHTML = "Hectometers: " + (result / 100) + "hm.";
+}
+
+// Auswanderungsverfahren
+function auswCalculate() {
+    let spdo = getFloat("ausw.spdo");
+    let rnghm = getFloat("ausw.rnghm");
+    let brg1 = getInt("ausw.brg1");
+    let brg2 = getInt("ausw.brg2");
+    let uncorrectedSpeed = spdo * Math.sin(degToRad(brg2));
+    let correction = rnghm * 3.3 * Math.sin(diffAngle(brg2, brg1));
+    document.getElementById("ausw.result").innerHTML = "Speed: " + uncorrectedSpeed + " correction: " + correction;
 }
 
 function getFloat(id) {
