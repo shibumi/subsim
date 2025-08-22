@@ -1,4 +1,4 @@
-// Calculator for distance by mast height
+// Distance by mast height
 function dmhCalculate() {
     let result = 0;
     let zoom = getInt("dmh.zoom");
@@ -10,7 +10,7 @@ function dmhCalculate() {
     document.getElementById("dmh.result").innerHTML = "Range: " + result + " meters.";
 }
 
-// Calculator for distance by ship length
+// Distance by length
 function dslCalculate() {
     let result = 0;
     let zoom = getInt("dsl.zoom");
@@ -23,6 +23,7 @@ function dslCalculate() {
     document.getElementById("dsl.result").innerHTML = "Range: " + result + " meters.";
 }
 
+// Speed by length
 function sblCalculate() {
     let result = 0;
     // Zoom does not matter for speed by lnegth
@@ -34,6 +35,7 @@ function sblCalculate() {
     document.getElementById("sbl.result").innerHTML = "Speed: " + result + " knots.";
 }
 
+// Single Leg Ekelund Range
 function sleCalculate() {
     let result = 0;
     let crso = getInt("sle.crso");
@@ -68,6 +70,7 @@ function sleCalculate() {
     document.getElementById("sle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
 }
 
+// Double Leg Ekelund Range
 function dleCalculate() {
     let result = 0;
     let brg1 = getInt("dle.brg1");
@@ -84,7 +87,15 @@ function dleCalculate() {
     document.getElementById("dle.spdoa1").innerHTML = "SPDOA 1: " + round(spdoa) + " knots.";
     document.getElementById("dle.spdoa2").innerHTML = "SPDOA 2: " + round(spdoa) + " knots.";
     document.getElementById("dle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
+}
 
+// Nautical Miles Converter
+function nmCalculate() {
+    let result = 0;
+    let nm = getFloat("nm.nm");
+    result = nm * 1852;
+    document.getElementById("nm.result").innerHTML = "Meters: " + result + " m."
+    document.getElementById("nm.hectom").innerHTML = "Hectometers: " + (result / 100) + "hm."
 }
 
 function getFloat(id) {
