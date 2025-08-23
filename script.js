@@ -46,8 +46,8 @@ function sleCalculate() {
     let brgrt = getFloat("sle.brgrt");
     let lag = document.getElementById("sle.lag").checked
 
-    let aob = diffAngle(reciprocal(brg), crst);
-    let lla = diffAngle(brg, crso);
+    let aob = substractBearing(reciprocal(brg), crst);
+    let lla = substractBearing(brg, crso);
     let spdoa = Math.abs(Math.sin(degToRad(lla)) * spdo);
     let spdta = Math.abs(Math.sin(degToRad(aob)) * spdt);
     let spdoi = Math.abs(Math.cos(degToRad(lla)) * spdo);
@@ -79,8 +79,8 @@ function dleCalculate() {
     let crso2 = getInt("dle.crso2");
     let brgrt1 = getInt("dle.brgrt1")
     let brgrt2 = getInt("dle.brgrt2")
-    let lla1 = diffAngle(brg1, crso1);
-    let lla2 = diffAngle(brg2, crso2);
+    let lla1 = substractBearing(brg1, crso1);
+    let lla2 = substractBearing(brg2, crso2);
     let spdoa1 = Math.abs(Math.sin(degToRad(lla1)) * spdo);
     let spdoa2 = Math.abs(Math.sin(degToRad(lla2)) * spdo);
     result = (spdoa2 - spdoa1) / (brgrt1 - brgrt2);
@@ -105,7 +105,7 @@ function auswCalculate() {
     let brg1 = getInt("ausw.brg1");
     let brg2 = getInt("ausw.brg2");
     let uncorrectedSpeed = spdo * Math.sin(degToRad(brg2));
-    let correction = rnghm * 3.3 * Math.sin(degToRad(diffAngle(brg2, brg1)));
+    let correction = rnghm * 3.3 * Math.sin(degToRad(bearingChange(brg2, brg1)));
     document.getElementById("ausw.result").innerHTML = "Speed: " + uncorrectedSpeed + " correction: " + correction;
 }
 
@@ -142,11 +142,19 @@ function reciprocal(bearing) {
     }
 }
 
-// diffAngle calculates the difference between two angles.
-// For example x = 50, y = 60. The result is 350 and not -10.
-function diffAngle(x, y) {
+// substractBearing substracts one bearing from another.
+// For example x = 50, y = 60. The result is 350.
+function substractBearing(x, y) {
     let d = x - y;
     return (d % 360 + 360) % 360;
+}
+
+// bearingChange returns the absolute bearing difference between
+// bearing x and bearing y.
+function bearingChange(x,  y) {
+    let d = x - y;
+    d = (d + 180) % 360 - 180;
+    return Math.abs( d < -180 ? d + 360 : d);
 }
 
 function degToRad(deg) {
