@@ -105,7 +105,7 @@ function auswCalculate() {
     let brg1 = getInt("ausw.brg1");
     let brg2 = getInt("ausw.brg2");
     let uncorrectedSpeed = spdo * Math.sin(degToRad(brg2));
-    let correction = rnghm * 3.3 * Math.sin(diffAngle(brg2, brg1));
+    let correction = rnghm * 3.3 * Math.sin(degToRad(diffAngle(brg2, brg1)));
     document.getElementById("ausw.result").innerHTML = "Speed: " + uncorrectedSpeed + " correction: " + correction;
 }
 
@@ -141,8 +141,8 @@ function diffAngle(x, y) {
     return (d % 360 + 360) % 360;
 }
 
-function degToRad(degrees) {
-    return degrees * (Math.PI / 180);
+function degToRad(deg) {
+    return deg * (Math.PI / 180);
   }
 
 function radToDeg(rad) {
