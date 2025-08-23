@@ -89,8 +89,8 @@ function dleCalculate() {
     document.getElementById("dle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
 }
 
-// Nautical Miles Converter
-function nmCalculate() {
+// convertUnits translates units from nautical miles to meters.
+function convertUnits() {
     let result = 0;
     let nm = getFloat("nm.nm");
     result = nm * 1852;
