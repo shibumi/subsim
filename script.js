@@ -109,6 +109,14 @@ function auswCalculate() {
     document.getElementById("ausw.result").innerHTML = "Speed: " + uncorrectedSpeed + " correction: " + correction;
 }
 
+function ausdCalculate() {
+    let spdt = 0;
+    let spdo = getFloat("ausd.spdo");
+    let brg = getInt("ausd.brg");
+    spdt = spdo * round(Math.sin(degToRad(brg)));
+    document.getElementById("ausd.spdt").innerHtml = "Target Speed: " + spdt + "kn.";
+}
+
 function getFloat(id) {
     return parseFloat(document.getElementById(id).value);
 }
