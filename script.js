@@ -114,7 +114,8 @@ function ausdCalculate() {
     let spdo = getFloat("ausd.spdo");
     let brg = getInt("ausd.brg");
     spdt = spdo * round(Math.sin(degToRad(brg)));
-    document.getElementById("ausd.spdt").innerHtml = "Target Speed: " + spdt + "kn.";
+    console.log(spdt);
+    document.getElementById("ausd.spdt").innerHTML = "Target Speed: " + spdt + "kn.";
 }
 
 function getFloat(id) {
