@@ -6,7 +6,7 @@ function dmhCalculate() {
     let markings = getFloat("dmh.markings");
 
     result = (height * 916.73 / markings) * zoom;
-    result = round(result);
+    result = fixed(result);
     document.getElementById("dmh.result").innerHTML = "Range: " + result + " meters.";
 }
 
@@ -19,7 +19,7 @@ function dslCalculate() {
     let  aob = getFloat("dsl.aob");
 
     result = ((length * 57.30 / degrees) * zoom) / aob;
-    result = round(result);
+    result = fixed(result);
     document.getElementById("dsl.result").innerHTML = "Range: " + result + " meters.";
 }
 
@@ -31,7 +31,7 @@ function sblCalculate() {
     let seconds = getInt("sbl.seconds");
 
     result = (length * 1.94 / seconds);
-    result = round(result);
+    result = fixed(result);
     document.getElementById("sbl.result").innerHTML = "Speed: " + result + " knots.";
 }
 
@@ -61,12 +61,12 @@ function sleCalculate() {
     result = Math.abs(spdra / brgrt);
     document.getElementById("aob.result").innerHTML = "AOB: " + aob;
     document.getElementById("lla.result").innerHTML = "LLA: " + lla;
-    document.getElementById("spdoa.result").innerHTML = "SPDOA: " + round(spdoa) + " knots.";
-    document.getElementById("spdta.result").innerHTML = "SPDTA: " + round(spdta) + " knots.";
-    document.getElementById("spdoi.result").innerHTML = "SPDOI: " + round(spdoi) + " knots.";
-    document.getElementById("spdti.result").innerHTML = "SPDTI: " + round(spdti) + " knots.";
-    document.getElementById("spdra.result").innerHTML = "SPDRA: " + round(Math.abs(spdra)) + " knots.";
-    document.getElementById("sle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
+    document.getElementById("spdoa.result").innerHTML = "SPDOA: " + fixed(spdoa) + " knots.";
+    document.getElementById("spdta.result").innerHTML = "SPDTA: " + fixed(spdta) + " knots.";
+    document.getElementById("spdoi.result").innerHTML = "SPDOI: " + fixed(spdoi) + " knots.";
+    document.getElementById("spdti.result").innerHTML = "SPDTI: " + fixed(spdti) + " knots.";
+    document.getElementById("spdra.result").innerHTML = "SPDRA: " + fixed(Math.abs(spdra)) + " knots.";
+    document.getElementById("sle.result").innerHTML = "Ekelund Range: " + fixed(result) + " nm.";
 }
 
 // Double Leg Ekelund Range
@@ -83,9 +83,9 @@ function dleCalculate() {
     let spdoa1 = Math.abs(Math.sin(degToRad(lla1)) * spdo);
     let spdoa2 = Math.abs(Math.sin(degToRad(lla2)) * spdo);
     result = (spdoa2 - spdoa1) / (brgrt1 - brgrt2);
-    document.getElementById("dle.spdoa1").innerHTML = "SPDOA 1: " + round(spdoa) + " knots.";
-    document.getElementById("dle.spdoa2").innerHTML = "SPDOA 2: " + round(spdoa) + " knots.";
-    document.getElementById("dle.result").innerHTML = "Ekelund Range: " + round(result) + " nm.";
+    document.getElementById("dle.spdoa1").innerHTML = "SPDOA 1: " + fixed(spdoa) + " knots.";
+    document.getElementById("dle.spdoa2").innerHTML = "SPDOA 2: " + fixed(spdoa) + " knots.";
+    document.getElementById("dle.result").innerHTML = "Ekelund Range: " + fixed(result) + " nm.";
 }
 
 // convertUnits translates units from nautical miles to meters.
@@ -111,14 +111,14 @@ function auswCalculate() {
     if(overlead) {
         result = uncorrectedSpeed + correction;
     }
-    document.getElementById("ausw.result").innerHTML = "Target Speed: " + round(result) + " kn." ;
+    document.getElementById("ausw.result").innerHTML = "Target Speed: " + fixed(result) + " kn." ;
 }
 
 function ausdCalculate() {
     let spdt = 0;
     let spdo = getFloat("ausd.spdo");
     let brg = getInt("ausd.brg");
-    spdt = spdo * round(Math.sin(degToRad(brg)));
+    spdt = spdo * fixed(Math.sin(degToRad(brg)));
     console.log(spdt);
     document.getElementById("ausd.spdt").innerHTML = "Target Speed: " + spdt + "kn.";
 }
@@ -171,6 +171,6 @@ function radToDeg(rad) {
     return rad / (Math.PI / 180);
 }
 
-function round(x) {
+function fixed(x) {
     return x.toFixed(2);
 }
