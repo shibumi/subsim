@@ -91,10 +91,12 @@ function dleCalculate() {
 // convertUnits translates units from nautical miles to meters.
 function convertUnits() {
     let result = 0;
-    let nm = getFloat("nm.nm");
+    let nm = getFloat("cu.nm");
+    let meters = getInt("cu.m");
     result = nm * 1852;
-    document.getElementById("nm.result").innerHTML = "Meters: " + result + " m.";
-    document.getElementById("nm.hectom").innerHTML = "Hectometers: " + (result / 100) + "hm.";
+    document.getElementById("cu.meters").innerHTML = "Meters: " + result + " m.";
+    document.getElementById("cu.hectom").innerHTML = "Hectometers: " + (result / 100) + " hm.";
+    document.getElementById("cu.miles").innerHTML = "Nautical Miles: " + fixed((meters / 1850)) + " nm.";
 }
 
 // Auswanderungsverfahren
