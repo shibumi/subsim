@@ -55,7 +55,6 @@ function sleCalculate() {
     let spdra = spdta - spdoa;
 
     // If Lag LOS, we have to add SPDTA and SPDOA
-    console.log(lag)
     if(lag) {
         spdra = spdta + spdoa;
     }
@@ -100,13 +99,19 @@ function convertUnits() {
 
 // Auswanderungsverfahren
 function auswCalculate() {
+    let result = 0;
     let spdo = getFloat("ausw.spdo");
     let rnghm = getFloat("ausw.rnghm");
     let brg1 = getInt("ausw.brg1");
     let brg2 = getInt("ausw.brg2");
+    let overlead = document.getElementById("ausw.overlead").checked
     let uncorrectedSpeed = spdo * Math.sin(degToRad(brg2));
     let correction = rnghm * 3.3 * Math.sin(degToRad(bearingChange(brg2, brg1)));
-    document.getElementById("ausw.result").innerHTML = "Speed: " + uncorrectedSpeed + " correction: " + correction;
+    result = uncorrectedSpeed - correction;
+    if(overlead) {
+        result = uncorrectedSpeed + correction;
+    }
+    document.getElementById("ausw.result").innerHTML = "Target Speed: " + round(result) + " kn." ;
 }
 
 function ausdCalculate() {
