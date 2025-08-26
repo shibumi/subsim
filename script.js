@@ -108,7 +108,8 @@ function auswCalculate() {
     let brg2 = getInt("ausw.brg2");
     let overlead = document.getElementById("ausw.overlead").checked
     let uncorrectedSpeed = spdo * Math.sin(degToRad(brg2));
-    let correction = rnghm * 3.3 * Math.sin(degToRad(bearingChange(brg2, brg1)));
+    // 3.24 comes from the formula for hectometers to knots: 100*60/1852.
+    let correction = rnghm * 3.24 * Math.sin(degToRad(bearingChange(brg2, brg1)));
     result = uncorrectedSpeed - correction;
     if(overlead) {
         result = uncorrectedSpeed + correction;
