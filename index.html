@@ -99,7 +99,7 @@
       </div>
   </div>
 
-  <div id="grid3" class="doubleGrid">
+  <div id="grid3" class="tripleGrid">
     <div id="ausw">
       <h2>Auswanderungsverfahren</h2>
       <form id="ausw.form" oninput="auswCalculate()">
@@ -140,6 +140,37 @@
       </form>
       <p id="ausd.spdt">Target Speed:</p>
     </div>
+  <div id="sbm">
+    <h2>Speed by mast height</h2>
+    <form id="sbm.form" oninput="sbmCalculate()">
+      <p>
+        <label for="sbm.zoom">Zoom:</label>
+        <select id="sbm.zoom">
+          <!--We use zoom factor 1 for 1.5x zoom and 4 for 6x zoom. This simplifies the calculation.-->
+          <option value=1>1.5x</option>
+          <option value=4>6x</option>
+        </select>
+      </p>
+      <p>
+        <label for="sbm.height">Height:</label>
+        <input type="number" id="sbm.height">
+      </p>
+      <p>
+        <label for="sbm.radian">Radian:</label>
+        <input type="number" id="sbm.radian">
+      </p>
+      <p>
+        <label for="sbm.minutes">Minutes:</label>
+        <input type="number" id="sbm.minutes">
+      </p>
+      <p>
+        <label for="sbm.spdo">SPDO:</label>
+        <input type="number" id="sbm.spdo">
+      </p>
+    </form>
+    <p id="sbm.range">Range:</p>
+    <p id="sbm.spdt">Speed:</p>
+  </div>
   </div>
   <div id="grid2" class="doubleGrid">
   <div id="sle">

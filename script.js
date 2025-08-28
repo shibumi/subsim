@@ -126,6 +126,20 @@ function ausdCalculate() {
     document.getElementById("ausd.spdt").innerHTML = "Target Speed: " + spdt + "kn.";
 }
 
+function sbmCalculate() {
+    let height = getFloat("sbm.height");
+    let radian = getFloat("sbm.radian");
+    let minutes = getFloat("sbm.minutes")
+    let spdo = getFloat("sbm.spdo");
+    let zoom = getInt("sbm.zoom");
+    let spdt = 0;
+    let range = 0;
+    range = (height * zoom / radian) * 100;
+    spdt = (range / minutes) * 0.0324 - spdo;
+    document.getElementById("sbm.range").innerHTML = "Range: " + fixed(range) + " nm.";
+    document.getElementById("sbm.spdt").innerHTML = "Speed: " + fixed(spdt) + " kn.";
+}
+
 function getFloat(id) {
     return parseFloat(document.getElementById(id).value);
 }
