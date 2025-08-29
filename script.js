@@ -128,15 +128,15 @@ function ausdCalculate() {
 
 function sbmCalculate() {
     let height = getFloat("sbm.height");
-    let radian = getFloat("sbm.radian");
+    let markings = getFloat("sbm.markings");
     let minutes = getFloat("sbm.minutes")
     let spdo = getFloat("sbm.spdo");
     let zoom = getInt("sbm.zoom");
     let spdt = 0;
     let range = 0;
-    range = (height * zoom / radian) * 100;
+    range = ((height * zoom )/ (markings/16 * Math.PI / 180)) * 100;
     spdt = (range / minutes) * 0.0324 - spdo;
-    document.getElementById("sbm.range").innerHTML = "Range: " + fixed(range) + " nm.";
+    document.getElementById("sbm.range").innerHTML = "Range: " + fixed(range) + " m.";
     document.getElementById("sbm.spdt").innerHTML = "Speed: " + fixed(spdt) + " kn.";
 }
 
