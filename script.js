@@ -121,7 +121,7 @@ function ausdCalculate() {
     let spdt = 0;
     let spdo = getFloat("ausd.spdo");
     let brg = getInt("ausd.brg");
-    spdt = spdo * fixed(Math.sin(degToRad(brg)));
+    spdt = spdo * fixed(Math.sin(degToRad(relativeBearing(brg))));
     console.log(spdt);
     document.getElementById("ausd.spdt").innerHTML = "Target Speed: " + spdt + "kn.";
 }
@@ -163,6 +163,15 @@ function reciprocal(bearing) {
     } else {
       return bearing - 180;
     }
+}
+
+// relativeBearing returns the shortest relative bearing.
+// For example bearing difference from 0 to 320 is 40.
+function relativeBearing(brg) {
+    if (brg <= 180) {
+        return brg;
+    }
+    return 360 - brg;
 }
 
 // substractBearing substracts one bearing from another.
