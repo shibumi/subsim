@@ -140,6 +140,20 @@ function sbmCalculate() {
     document.getElementById("sbm.spdt").innerHTML = "Speed: " + fixed(spdt) + " kn.";
 }
 
+// attackDiskCalc is being used to calculate the enemy's AOB and target course.
+function attackDiskCalc() {
+    let crso = getInt("attackdisk.crso");
+    let brg = getInt("attackdisk.brg");
+    let aob = getInt("attackdisk.aob");
+    let crst = getInt("attackdisk.crst");
+    let lla = substractBearing(brg, crso);
+    let aob_new = substractBearing(reciprocal(brg), crst);
+    let crst_new = substractBearing(reciprocal(brg), aob);
+    document.getElementById("attackdisk.lla").innerHTML = "LLA: " + lla;
+    document.getElementById("attackdisk.aobn").innerHTML = "AOB: " + aob_new;
+    document.getElementById("attackdisk.crstn").innerHTML = "CRST: " + crst_new;
+}
+
 function getFloat(id) {
     return parseFloat(document.getElementById(id).value);
 }

@@ -99,7 +99,7 @@
       </div>
   </div>
 
-  <div id="grid3" class="tripleGrid">
+  <div id="grid3" class="quadGrid">
     <div id="ausw">
       <h2>Auswanderungsverfahren</h2>
       <form id="ausw.form" oninput="auswCalculate()">
@@ -170,6 +170,30 @@
     </form>
     <p id="sbm.range">Range:</p>
     <p id="sbm.spdt">Speed:</p>
+  </div>
+  <div id="attackdisk">
+    <h2>Attack Disk</h2>
+    <form id="attackdisk.form" oninput="attackDiskCalc()">
+      <p>
+        <label for="attackdisk.crso">CRSO:</label>
+        <input type="number" id="attackdisk.crso">
+      </p>
+      <p>
+        <label for="attackdisk.brg">BRG:</label>
+        <input type="number" id="attackdisk.brg">
+      </p>
+      <p>
+        <label for="attackdisk.aob">AOB:</label>
+        <input type="number" id="attackdisk.aob">
+      </p>
+      <p>
+        <label for="attackdisk.crst">CRST:</label>
+        <input type="number" id="attackdisk.crst">
+      </p>
+    </form>
+    <p id="attackdisk.lla">LLA:</p>
+    <p id="attackdisk.aobn">AOB:</p>
+    <p id="attackdisk.crstn">CRST:</p>
   </div>
   </div>
   <div id="grid2" class="doubleGrid">
