@@ -112,6 +112,7 @@ function auswCalculate() {
     let correction = rnghm * 3.24 * Math.sin(degToRad(bearingChange(brg2, brg1)));
     result = uncorrectedSpeed - correction;
     if(overlead) {
+        // Enemy has overlead, bearing moves moves into your boat's 0 bearing.
         result = uncorrectedSpeed + correction;
     }
     document.getElementById("ausw.result").innerHTML = "Target Speed: " + fixed(result) + " kn." ;
