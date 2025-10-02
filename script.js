@@ -18,7 +18,7 @@ function dslCalculate() {
     let degrees = getFloat("dsl.degrees");
     let  aob = getFloat("dsl.aob");
 
-    result = ((length * 57.30 / degrees) * zoom) / aob;
+    result = ((length * 57.30 / degrees) * zoom) / Math.sin(degToRad(aob));
     result = fixed(result);
     document.getElementById("dsl.result").innerHTML = "Range: " + result + " meters.";
 }
