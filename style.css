@@ -1,22 +1,13 @@
 .container {
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
 }
 
 body {
     font-family: monospace;
-    min-width: 1200px;
     color: white;
     background-color: black;
-    padding: 0;
-}
-
-h1 {
-    padding-inline-end: 20px;
- }
-
-p {
-    font-size: 10pt;
 }
 
 form {
@@ -45,30 +36,17 @@ select {
 }
 
 .item {
-    flex: 1 1 calc(33% - 10px);
+    flex: 1 1 100%;
     margin: 5px;
 }
 
-.doubleGrid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-inline: 0px 15px;
-  }
-
-.tripleGrid {
-      display: grid;
-      grid-template-columns: 25% 25% 50%;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-inline: 0px 15px;
-}
-
-.quadGrid {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-inline: 0px 15px;
+/* LAPTOP/WIDE DISPLAY STYLES */
+/* Use a media query to apply different styles for wider screens (e.g., above 768px) */
+@media (min-width: 768px) {
+    /* This rule will override the default for screens 768px and wider */
+    .item {
+        /* This is your original laptop layout: 3 items per row */
+        /* Takes up 1/3 of the space, minus margins */
+        flex: 1 1 calc(33.333% - 10px);
+    }
 }

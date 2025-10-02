@@ -10,12 +10,10 @@
   <body>
     <header>
       <h1>FRANZ (Firing Resolution And Navigation Zeroing)</h1>
-      <p>Servus, I am FRANZ your bavarian first officer. I am here to help you with target resolutions and firing data calculations.</p>
     </header>
 
 <main class="container">
-  <div id="grid" class="quadGrid">
-    <div id="dmh">
+    <div id="dmh" class="item" >
       <h2>Distance by mast height</h2>
       <form id="dmh.form" oninput="dmhCalculate()">
         <p>
@@ -39,7 +37,7 @@
       <p id="dmh.result">Range:</p>
     </div>
 
-    <div id="dsl">
+    <div id="dsl" class="item">
       <h2>Distance by ship length</h2>
       <form id="dsl.form" oninput="dslCalculate()">
         <p>
@@ -66,7 +64,7 @@
       <p id="dsl.result">Range:</p>
     </div>
 
-      <div id="sbl">
+      <div id="sbl"  class="item">
         <h2>Speed by Length</h2>
         <form id="sbl.form" oninput="sblCalculate()">
           <p>
@@ -81,7 +79,7 @@
 
       <p id="sbl.result">Speed:</p>
       </div>
-      <div id="cu">
+      <div id="cu" class="item">
         <h2>Convert units</h2>
         <form id="cu.form" oninput="convertUnits()">
           <p>
@@ -97,10 +95,8 @@
         <p id="cu.hectom">Hectometers:</p>
         <p id="cu.miles">Nautical Miles:</p>
       </div>
-  </div>
 
-  <div id="grid3" class="quadGrid">
-    <div id="ausw">
+    <div id="ausw" class="item">
       <h2>Auswanderungsverfahren</h2>
       <form id="ausw.form" oninput="auswCalculate()">
         <p>
@@ -126,7 +122,8 @@
       </form>
       <p id="ausw.result">Target Speed:</p>
     </div>
-    <div id="ausd">
+
+    <div id="ausd" class="item">
       <h2>Ausdampfverfahren</h2>
       <form id="ausd.form" oninput="ausdCalculate()">
         <p>
@@ -140,7 +137,8 @@
       </form>
       <p id="ausd.spdt">Target Speed:</p>
     </div>
-  <div id="sbm">
+
+  <div id="sbm" class="item">
     <h2>Speed by mast height</h2>
     <form id="sbm.form" oninput="sbmCalculate()">
       <p>
@@ -171,7 +169,7 @@
     <p id="sbm.range">Range:</p>
     <p id="sbm.spdt">Speed:</p>
   </div>
-  <div id="attackdisk">
+  <div id="attackdisk" class="item">
     <h2>Attack Disk</h2>
     <form id="attackdisk.form" oninput="attackDiskCalc()">
       <p>
@@ -195,9 +193,8 @@
     <p id="attackdisk.aobn">AOB:</p>
     <p id="attackdisk.crstn">CRST:</p>
   </div>
-  </div>
-  <div id="grid2" class="doubleGrid">
-  <div id="sle">
+
+  <div id="sle" class="item">
     <h2>Single-Leg Ekelund</h2>
     <form id="sle.form" oninput="sleCalculate()">
       <p>
@@ -239,7 +236,7 @@
     <p id="sle.result">Ekelund Range:</p>
   </div>
 
-  <div id=dle>
+  <div id=dle class="item">
   <h2>Double-Leg Ekelund</h2>
   <form id="dle.form" oninput="dleCalculate()">
     <p>
@@ -278,7 +275,6 @@
   <p id="dle.spdoa1">SPDOA1:</p>
   <p id="dle.spdoa2">SPDOA2:</p>
   <p id="dle.result">Ekelund Range:</p>
-  </div>
   </div>
 
   <script src="script.js"></script>
